@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aniversário da Ana Clara - Moana</title>
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 🎵 Música de fundo -->
+<audio id="bg-music" autoplay loop>
+    <source src="musica/moana.mp3.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+    </audio>
+    <button id="play-btn">🔊 Tocar Música</button>
+<script>
+const music = document.getElementById('bg-music');
+const playBtn = document.getElementById('play-btn');
+
+playBtn.addEventListener('click', () => {
+music.play();
+playBtn.style.display = 'none'; // Esconde o botão após tocar
+});
+</script>
+
+
+<header class="convite-titulo">
+<h1>🌊 Você foi escolhido pelo oceano!</h1>
+<p>Venha celebrar os 3 anos da Ana Clara numa aventura incrível!</p>
+</header>
+
+<section class="personagens fade-in">
+    <img src="foto/ana desenho.png" alt="Moana" />
+        </section>
+
+<section class="info fade-in">
+<h2>📍 Informações da Festa</h2>
+<ul>
+<li><strong>Data:</strong> 19 de julho de 2025</li>
+<li><strong>Hora:</strong> A partir das 13h</li>
+<li><strong>Local:</strong> Rua Santa Cruz, 1974 – Vila Mariana</li>
+<li><strong>Traje:</strong> Confortável</li>
+</ul>
+</section>
+
+<section class="mapa fade-in">
+    <a href="https://www.google.com/maps/place/R.+Santa+Cruz,+1974+-+Vila+Mariana,+São+Paulo+-+SP" target="_blank">
+    🗺️ Ver local no Google Maps
+    <a href= "https://forms.gle/DwH1fi2VU3LL2LT48" target="_blank">
+        📋 Confirmar presença no Google Forms
+        </a>
+
+    <!-- Mapa incorporado -->
+    <div class="mapa-container">
+    <iframe src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.0476445091754!2d-46.622354289710536!3d-23.602624178683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5bb8ffc45adb%3A0x46c6d48afb3ba63d!2sR.%20Santa%20Cruz%2C%201974%20-%20Vila%20Mariana%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004122-002!5e0!3m2!1spt-BR!2sbr!4v1748133157560!5m2!1spt-BR!2sbr" >
+        </iframe>
+    </div>
+    </section>
+
+<footer class="fade-in">
+<p>✨ Esperamos você para uma jornada inesquecível! 🌺</p>
+</footer>
+
+<script>
+const elements = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1 });
+
+elements.forEach(el => observer.observe(el));
+</script>
+
+<!-- BOTÃO PARA ABRIR MODAL -->
+<section style="text-align: center; margin: 40px 0;">
+<button id="abrirModal" style="padding: 12px 24px; font-size: 1.2em; background-color: #8861f4; color: white; border: none; border-radius: 10px; cursor: pointer;">🎁 Sugestão de Presentes</button>
+</section>
+
+<!-- MODAL -->
+<div id="modalPresentes" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6);">
+<div style="background: white; margin: 10% auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; position: relative; animation: fadeIn 0.3s ease;">
+<span id="fecharModal" style="position: absolute; top: 10px; right: 15px; font-size: 24px; color: #888; cursor: pointer;">&times;</span>
+<h3 style="margin-top: 0; text-align: center; color: #2a9d8f;">🎉 Sugestões de Presentes</h3>
+<ul style="padding-left: 20px; text-align: left;">
+<li>Roupinhas tamanho 3</li>
+<li>tenis tamanho 22/23</li>
+<li>Livros infantis</li>
+<li>Brinquedos educativos(pequenos)</li>
+<li>Personagens da Disney (Moana, Hei Hei, Pua)</li>
+</ul>
+</div>
+</div>
+
+<script>
+const modal = document.getElementById("modalPresentes");
+const abrirBtn = document.getElementById("abrirModal");
+const fecharBtn = document.getElementById("fecharModal");
+
+abrirBtn.onclick = () => {
+modal.style.display = "block";
+};
+
+fecharBtn.onclick = () => {
+modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+if (event.target === modal) {
+modal.style.display = "none";
+}
+};
+</script>
+
+<footer style="background-color: #67cedb; color: white; text-align: center; padding: 15px 5px; margin-top: 20px; font-size: 0.9em;">
+© 2025 | Esta página foi idealizada, desenvolvida e publicada por <strong>Felipe Ferreira</strong>, com muito carinho para o aniversário de Ana Clara. Todos os direitos reservados.
+</footer>
+</body>
+</html>
